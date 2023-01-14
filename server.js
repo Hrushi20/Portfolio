@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const crypto = require('crypto');
+var fs = require('fs');
+
+const { spawn } = require('child_process');
 
 // Import .env variables
 dotenv.config();
@@ -24,10 +27,13 @@ app.use(bodyParser.json({
 
 app.use(express.static('public'));
 
-
+var out = fs.openSync('./out.log', 'a');
+var err = fs.openSync('./out.log', 'a');
 app.post("/",verifyPostData,(req,res,next)=>{
+
 	res.status(200).send("Request body was signed");
-	
+	var child = spawn('sh',['build.sh'], { detached: true, stdio: [ 'ignore', out, err ] });
+	child.unref();
 });
 
 app.listen(PORT, ()=>{
