@@ -9,20 +9,6 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
-
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -134,8 +120,8 @@
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Senior Developer</h3>
-									<span class="company">Company Name - 2016 - Current</span>
+									<h3 class="timeline-title">Google Summer of Code</h3>
+									<span class="company">Jenkins: June - Sept (2022)</span>
 								</div>
 								<div class="timeline-body">
 									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -146,15 +132,15 @@
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
-									<h3 class="timeline-title">Junior Developer</h3>
-									<span class="company">Company Name - 2013 - 2015</span>
+									<h3 class="timeline-title">Frontend Developer</h3>
+									<span class="company">Formulate AI: Nov - Apr (2022)</span>
 								</div>
 								<div class="timeline-body">
 									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 								</div>
 							</div>
 						</li>
-						<li class="animate-box timeline-unverted">
+						<!-- <li class="animate-box timeline-unverted">
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading">
@@ -165,7 +151,7 @@
 									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 								</div>
 							</div>
-						</li>
+						</li> -->
 
 						<br>
 						<li class="timeline-heading text-center animate-box">
@@ -176,7 +162,7 @@
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">Bachelors Degree</h3>
-									<span class="company">Jawaharlal Nehru Technological University - 2019 - 2024</span>
+									<span class="company">Jawaharlal Nehru Technological University: 2019 - 2024</span>
 								</div>
 								<div class="timeline-body">
 									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
@@ -188,7 +174,7 @@
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">Intermediate</h3>
-									<span class="company">Naryana Junior College - 2017 - 2019</span>
+									<span class="company">Naryana Junior College: 2017 - 2019</span>
 								</div>
 								<div class="timeline-body">
 									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -200,7 +186,7 @@
 							<div class="timeline-panel">
 								<div class="timeline-heading">
 									<h3 class="timeline-title">School</h3>
-									<span class="company">Delhi Public School - 2017</span>
+									<span class="company">Delhi Public School: 2017</span>
 								</div>
 								<div class="timeline-body">
 									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
@@ -564,7 +550,7 @@
 		</div>
 		<div class="choose animate-box">
 			<h2>Contact</h2>
-			<form action="#">
+			<form>
 				<div class="row form-group">
 					<div class="col-md-6">
 						<input type="text" id="fname" class="form-control" placeholder="Your firstname">
@@ -594,7 +580,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Send Message" class="btn btn-primary">
+					<input type="submit" value="Send Message" class="btn btn-primary" onclick="sendMail()">
 				</div>
 
 			</form>	
@@ -630,6 +616,47 @@
 
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+	<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+	</script>
+
+	<script type="text/javascript">
+		(function(){
+			emailjs.init("user_TsNYPQLGPhRDQQEKhX2ix");
+		})();
+	</script>
+
+	<script>
+		function sendMail(){
+			var fInput = document.getElementById('fname');
+			var lInput = document.getElementById('lname');
+			var emailInput = document.getElementById('email');
+			var subjectInput = document.getElementById('subject');
+			var messageInput = document.getElementById('message');
+
+			var formData = {
+				fname: fInput.value,
+				lname: lInput.value,
+				email: emailInput.value,
+				subject: subjectInput.value,
+				message: messageInput.value 
+			};
+
+			console.log(formData);
+
+			emailjs.send('service_st5pymj', 'template_inu4zgm', formData)
+				.then(function(response) {
+
+					console.log("Form submitted successfully.");
+
+				}, function(error) {
+
+					console.log("Error submitting form");
+
+				});
+		}
+	</script>
 
 	</body>
 </html>
