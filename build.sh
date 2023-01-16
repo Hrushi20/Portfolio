@@ -9,6 +9,7 @@ git pull
 
 npm install 
 
+date >> "$(pwd)/buildLog.txt"
+
 pm2 restart ${server}
 
-date >> "$(pwd)/buildLog.txt"
