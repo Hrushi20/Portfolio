@@ -591,7 +591,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p>&copy; 2023 All Rights Reserved. <br>Designed by <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></p>
+					<p>&copy; <span id="current-year"></span> All Rights Reserved. <br>Designed by <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></p>
 				</div>
 			</div>
 		</div>
@@ -624,6 +624,7 @@
 	<script type="text/javascript">
 		(function(){
 			emailjs.init("user_TsNYPQLGPhRDQQEKhX2ix");
+			document.getElementById('current-year').innerHTML = new Date().getFullYear();
 		})();
 	</script>
 
