@@ -232,7 +232,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-features .feature-left {
   margin-bottom: 40px;
-  float: left;
 }
 @media screen and (max-width: 992px) {
   #fh5co-features .feature-left {
@@ -263,8 +262,11 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
 }
 #fh5co-features .feature-left h3 {
+  margin: auto;
   font-size: 24px;
   font-weight: 400;
+  width: 60%;
+  text-align: center;
   color: #fff;
 }
 #fh5co-features .feature-left p {
